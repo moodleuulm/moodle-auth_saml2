@@ -25,7 +25,7 @@
 namespace auth_saml2\task;
 
 /**
- * The auth_saml2 scheduled task class for LDAP roles sync
+ * The auth_saml2 scheduled task class for  roles sync
  *
  * @package    auth_saml2
  * @copyright  2025 Alina Antonova, Ulm University <alina.antonova@uni-ulm.de>
@@ -43,13 +43,13 @@ class sync_roles_saml2 extends \core\task\scheduled_task {
     }
 
     /**
-     * Execute scheduled task
+     
      *
      * @return boolean
      */
     public function execute() {
         global $DB;
-        if (is_enabled_auth('saml2')) {
+        if (is_enabled_auth('ldap_syncplus') and is_enabled_auth('saml2')) {
             $auth = get_auth_plugin('ldap_syncplus');
             $users = $DB->get_records('user', ['auth' => 'saml2']);
             foreach ($users as $user) {
