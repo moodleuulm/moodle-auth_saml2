@@ -15,20 +15,20 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Auth plugin "LDAP SyncPlus" - Task definition
+ * Auth plugin "Saml2" - Task definition
  *
- * @package    auth_ldap_syncplus
- * @copyright  2014 Alexander Bias, Ulm University <alexander.bias@uni-ulm.de>
+ * @package    auth_saml2
+ * @copyright  2025 Alina Antonova, Ulm University <alina.antonova@uni-ulm.de>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 namespace auth_saml2\task;
 
 /**
- * The auth_ldap_syncplus scheduled task class for LDAP roles sync
+ * The auth_saml2 scheduled task class for LDAP roles sync
  *
- * @package    auth_ldap_syncplus
- * @copyright  2014 Alexander Bias, Ulm University <alexander.bias@uni-ulm.de>
+ * @package    auth_saml2
+ * @copyright  2025 Alina Antonova, Ulm University <alina.antonova@uni-ulm.de>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class sync_roles_saml2 extends \core\task\scheduled_task {
@@ -49,7 +49,7 @@ class sync_roles_saml2 extends \core\task\scheduled_task {
      */
     public function execute() {
         global $DB;
-        if (is_enabled_auth('saml2')) {
+        if (is_enabled_auth('ldap_syncplus') and is_enabled_auth('saml2')) {
             $auth = get_auth_plugin('ldap_syncplus');
             $users = $DB->get_records('user', ['auth' => 'saml2']);
             foreach ($users as $user) {
