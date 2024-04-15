@@ -34,4 +34,22 @@ $tasks = [
         'dayoftheweek' => '*',
         'month' => '*',
     ],
+    [
+        'classname' => 'auth_saml2\task\sync_task_saml2',
+        'blocking' => 0,
+        'minute' => 0,
+        'hour' => 0,
+        'day' => '*',
+        'dayoftheweek' => '*',
+        'month' => '*',
+    ],
+    [
+        'classname' => 'auth_saml2\task\sync_roles_saml2',
+        'blocking' => 0,
+        'minute' => 0,
+        'hour' => 0,
+        'day' => '*',
+        'dayoftheweek' => '*',
+        'month' => '*',
+    ],
 ];

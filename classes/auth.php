@@ -1344,4 +1344,19 @@ class auth extends \auth_plugin_base {
             }
         }
     }
+
+    /**
+     * Execute change from ldap_syncplus to saml2
+     */
+    function auth_update_ldap_syncplus_for_saml2() {
+        global $DB;
+        $ldap_users = $DB->get_records('user', ['auth' => 'ldap_syncplus']);
+        foreach ($ldap_users as $user) {
+            $updateuser = new stdClass();
+            $updateuser->id = $user->id;
+            $updateuser->auth = 'saml2';
+            user_update_user($updateuser, false);
+            mtrace("\t"."Change user auth methode from ldap_syncplus for saml2 username: ".$user->username." id: ".$user->id);
+        }
+    }
 }
