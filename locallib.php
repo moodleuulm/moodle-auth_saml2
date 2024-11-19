@@ -158,7 +158,7 @@ function auth_saml2_get_sp_metadata($baseurl = '') {
             unset($metaArray20['attributes.required']);
         }
 
-        $description = $spconfig->getArray('description', NULL);
+        /*$description = $spconfig->getArray('description', NULL);
         if ($description !== NULL) {
             $metaArray20['description'] = $description;
         }
@@ -166,7 +166,7 @@ function auth_saml2_get_sp_metadata($baseurl = '') {
         $nameFormat = $spconfig->getString('attributes.NameFormat', NULL);
         if ($nameFormat !== NULL) {
             $metaArray20['attributes.NameFormat'] = $nameFormat;
-        }
+        }*/
     }
 
     // add organization info
