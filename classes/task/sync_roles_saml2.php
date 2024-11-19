@@ -39,7 +39,7 @@ class sync_roles_saml2 extends \core\task\scheduled_task {
      * @return string
      */
     public function get_name() {
-        return get_string('syncroles', 'auth_saml2');
+        return "Synchronisierung von LDAP-Nutzerrollen saml2-Nutzerkonten (Saml2)";
     }
 
     /**
@@ -49,7 +49,7 @@ class sync_roles_saml2 extends \core\task\scheduled_task {
      */
     public function execute() {
         global $DB;
-        if (is_enabled_auth('ldap_syncplus') and is_enabled_auth('saml2')) {
+        if (is_enabled_auth('saml2')) {
             $auth = get_auth_plugin('ldap_syncplus');
             $users = $DB->get_records('user', ['auth' => 'saml2']);
             foreach ($users as $user) {
