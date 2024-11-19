@@ -49,7 +49,7 @@ class sync_task_saml2 extends \core\task\scheduled_task {
      */
     public function execute() {
         global $CFG;
-        if (is_enabled_auth('ldap_syncplus') and is_enabled_auth('saml2')) {
+        if (is_enabled_auth('saml2')) {
             $auth_saml2 = get_auth_plugin('saml2');
             //$auth_saml2->auth_update_ldap_syncplus_for_saml2(); //TODO einschalten, wenn Saml2 in betrieb genommen wird
             //$auth = get_auth_plugin('ldap_syncplus');
