@@ -43,7 +43,7 @@ class sync_roles_saml2 extends \core\task\scheduled_task {
     }
 
     /**
-     
+     * Execute scheduled task
      *
      * @return boolean
      */
